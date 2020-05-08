@@ -1,0 +1,28 @@
+---
+title: "Data Visualization with ggplot2"
+author: "Maria Tackett"
+date: "05.12.20"
+output:
+  xaringan::moon_reader:
+  #  mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
+    css: "slide-design.css"
+ #   logo: img/sta210-sticker-icon.png
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      slideNumberFormat: "%current%"
+      ratio: 16:9
+---
+
+### My site
+
+- this is slide 1
+- this is slide 2
+
+
+```{r}
+library(tidyverse)
+```
+
