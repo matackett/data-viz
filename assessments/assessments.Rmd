@@ -1,6 +1,8 @@
 ---
 title: "Assessments"
-output: learnr::tutorial
+output: 
+  learnr::tutorial:
+    progressive: true
 runtime: shiny_prerendered
 ---
 
@@ -14,6 +16,7 @@ knitr::opts_chunk$set(echo = FALSE,
 ```{r load-packages}
 library(tidyverse)
 library(mosaicData)
+library(lubridate)
 ```
 
 ## Exercise 1
@@ -33,8 +36,31 @@ question("Which of the following best describes the points on the plot?",
   )
 ```
 
+<!-- 
+- Fix headings, so it's a continuous problem 
+- Fix day of the week (is Monday correct?), put days in order
+- Add itermediate problem, where they have to fill in code inside the brackets
+- Fix questions 
+- Add codebook at top
+-->
 
-## Exercise 2
+## Parson's Problem 
+
+### Parson's Problem - 1
+
+```{r echo = F}
+Riders <- Riders %>%
+  mutate(month = month(date)) %>%
+  mutate(month = case_when(
+    month == 4 ~ "April", 
+    month == 5 ~ "May", 
+    month == 6 ~ "June", 
+    month == 7 ~ "July", 
+    month == 8 ~ "August", 
+    TRUE ~ "November"
+  ))
+```
+
 
 ```{r echo = FALSE, eval = TRUE}
 ggplot(data = Riders, aes(x = highT, y = riders, color = clouds)) + 
@@ -43,7 +69,7 @@ ggplot(data = Riders, aes(x = highT, y = riders, color = clouds)) +
        y = "Riders", 
        color = "Cloud Cover",
        title = "Riders vs. High Temp. & Cloud Cover", 
-       subtitle = "Weekdays vs. Weekend") +
+       subtitle = "by Weekday") +
   facet_wrap(~ weekday)
 ```
 
@@ -57,26 +83,48 @@ ggplot(data = Riders, aes(x = highT, y = _____, color = _____)) +
        y = "Riders", 
        color = "Cloud Cover",
        title = "Riders vs. High Temp. & Cloud Cover", 
-       subtitle = "Weekdays vs. Weekend") +
+       subtitle = "_____") +
   facet_wrap(~ _____)
 ```
 
-## Exercise 3
+### Parson's Problem - 2
 
-Recreate the plot above. 
+Fill in the code to recreate the plot. 
+```{r echo = FALSE, eval = TRUE}
+ggplot(data = Riders, aes(x = clouds, y = precip, color = weekday)) + 
+  geom_point() + 
+  labs(x = "Cloud Cover", 
+       y = "Precipitation", 
+       color = "Weekday",
+       title = "Precipitation vs. Cloud Cover & Weekday", 
+       subtitle = "by Month") +
+  facet_wrap(~ month)
+```
+
+```{r parsons-2, exercise = TRUE, exercise.eval = FALSE}
+# Fill in the code to recreate the plot shown above 
+ggplot(data = Riders, aes(_____)) + 
+  geom_point() + 
+  labs(_____)+
+  facet_wrap(_____)
+```
+
+### Parson's Problem - 3
+
+Recreate the plot. 
 
 ```{r echo = FALSE, eval = TRUE}
 ggplot(data = Riders, aes(x = lowT, y = riders, color = day)) + 
   geom_point() + 
   labs(x = "Low Temperature", 
-       y = "Ridiers", 
+       y = "Riders", 
        color = "Day",
-       title = "Riders. vs. Low Temp", 
-       subtitle = "Weekends vs. Weekday") +
+       title = "Riders. vs. Low Temp & Day", 
+       subtitle = "Weekdays vs. Weekends") +
   facet_wrap(~ weekday)
 ```
 
-```{r parsons-2, exercise = TRUE, exercise.eval = FALSE}
+```{r parsons-3, exercise = TRUE, exercise.eval = FALSE}
 # Write code to recreate the plot shown above 
 
 ```
