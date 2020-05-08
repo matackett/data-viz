@@ -1,0 +1,83 @@
+---
+title: "Assessments"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+```{r setup, include=FALSE}
+library(learnr)
+knitr::opts_chunk$set(echo = FALSE, 
+                      warning = FALSE, 
+                      message = FALSE)
+```
+
+```{r load-packages}
+library(tidyverse)
+library(mosaicData)
+```
+
+## Exercise 1
+
+Consider the code below: 
+
+```{r echo = TRUE, eval = F}
+ggplot(data = Riders, aes(x = highT, y = riders)) +
+  geom_point(aes(shape = day), color = "blue")
+```
+
+```{r aes-quest}
+question("Which of the following best describes the points on the plot?",
+    answer("The shape is the same for all points."),
+    answer("The color is the same for all points.", correct = TRUE),
+    answer("The color and shape are the same for all points.")
+  )
+```
+
+
+## Exercise 2
+
+```{r echo = FALSE, eval = TRUE}
+ggplot(data = Riders, aes(x = highT, y = riders, color = clouds)) + 
+  geom_point() + 
+  labs(x = "High Temperature", 
+       y = "Riders", 
+       color = "Cloud Cover",
+       title = "Riders vs. High Temp. & Cloud Cover", 
+       subtitle = "Weekdays vs. Weekend") +
+  facet_wrap(~ weekday)
+```
+
+Fill in the blanks in the partial code to recreate the plot shown above. 
+
+```{r parsons-1, exercise = TRUE, exercise.eval = FALSE}
+# replace blanks with the correct values to recreate the plot above.
+ggplot(data = Riders, aes(x = highT, y = _____, color = _____)) + 
+  geom_point() + 
+  labs(x = "_____", 
+       y = "Riders", 
+       color = "Cloud Cover",
+       title = "Riders vs. High Temp. & Cloud Cover", 
+       subtitle = "Weekdays vs. Weekend") +
+  facet_wrap(~ _____)
+```
+
+## Exercise 3
+
+Recreate the plot above. 
+
+```{r echo = FALSE, eval = TRUE}
+ggplot(data = Riders, aes(x = lowT, y = riders, color = day)) + 
+  geom_point() + 
+  labs(x = "Low Temperature", 
+       y = "Ridiers", 
+       color = "Day",
+       title = "Riders. vs. Low Temp", 
+       subtitle = "Weekends vs. Weekday") +
+  facet_wrap(~ weekday)
+```
+
+```{r parsons-2, exercise = TRUE, exercise.eval = FALSE}
+# Write code to recreate the plot shown above 
+
+```
+
