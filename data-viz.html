@@ -17,11 +17,18 @@ class: center, middle, inverse, title-slide
 ---
 
 
-### My site
+### Goals for today 
 
-- this is slide 1
-- this is slide 2
+- list of goals on left 
+- output of what they can make on right
 
+---
+
+### `ggplot2`
+
+- part of tidyverse
+- grammar of graphics
+- plots built in layers
 
 
 ```r
@@ -29,7 +36,7 @@ library(tidyverse)
 ```
 
 ```
-## ── Attaching packages ────────
+## ── Attaching packages ──────── tidyverse 1.2.1 ──
 ```
 
 ```
@@ -40,10 +47,71 @@ library(tidyverse)
 ```
 
 ```
-## ── Conflicts ─────────────────
+## ── Conflicts ─────────── tidyverse_conflicts() ──
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()
 ```
+
+---
+
+### example plot and code
+
+- Use diamonds dataset
+
+---
+
+### Basic `ggplot` syntax
+
+
+```r
+ggplot(data = [dataset], aes(x = [x-var], y = [y-var])) +
+  geom_xx() + 
+  other options
+```
+
+
+---
+
+### diamonds data
+
+
+
+---
+
+### Live demo, let's see what's happening. 
+
+
+---
+
+### Adding aesthetics
+
+What's the different between two plots ?
+
+color all points
+color by variable 
+
+---
+
+### Aesthetics 
+
+ Show types, 
+ 
+ size, alpha, etc. 
+ 
+--- 
+ 
+### Formative assessment
+Multiple choice question 
+
+---
+
+### Put it all together 
+
+- Live demo 
+
+---
+
+### Last assessment
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

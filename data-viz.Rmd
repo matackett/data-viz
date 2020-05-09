@@ -16,15 +16,91 @@ output:
       ratio: 16:9
 ---
 
-### My site
+### Goals for today 
 
-- this is slide 1
-- this is slide 2
+- list of goals on left 
+- output of what they can make on right
 
+---
+
+### `ggplot2`
+
+- part of tidyverse
+- grammar of graphics
+- plots built in layers
 
 ```{r}
 library(tidyverse)
 ```
 
+---
 
-a
+### example plot and code
+
+- Use diamonds dataset
+
+---
+
+### Basic `ggplot` syntax
+
+```{r eval = F}
+ggplot(data = [dataset], aes(x = [x-var], y = [y-var])) +
+  geom_xx() + 
+  other options
+```
+
+
+---
+
+### diamonds data
+
+```{r diamond-plot, include = F}
+ggplot(data = diamonds, aes(x = carat, y = price)) +
+  geom_point() + 
+  labs(title = "title", 
+       x = "carat",
+       y = "price")
+```
+
+---
+
+### Live demo, let's see what's happening. 
+
+
+---
+
+### Adding aesthetics
+
+What's the different between two plots ?
+
+color all points
+color by variable 
+
+---
+
+### Aesthetics 
+
+ Show types, 
+ 
+ size, alpha, etc. 
+ 
+--- 
+ 
+### Formative assessment
+Multiple choice question 
+
+---
+
+### Put it all together 
+
+- Live demo 
+
+---
+
+### Last assessment
+
+
+
+
+ 
+
