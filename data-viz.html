@@ -71,24 +71,54 @@ ggplot(data = [dataset], aes(x = [x-var], y = [y-var])) +
 
 
 ---
+### Demo
 
-### diamonds data
+.pull-left[
+![](data-viz_files/figure-html/unnamed-chunk-3-1.png)&lt;!-- --&gt;
+]
 
-
+.pull-right[
+.vertical-center[
+.question[
+**Let's take a look at how to create this plot in R.**
+]
+]
+]
 
 ---
 
-### Live demo, let's see what's happening. 
+### Our first plot 
 
+
+```r
+ggplot(data = diamonds, aes(x = carat, y = price)) +
+  geom_point() + 
+  labs(title = "Price vs. Carat", 
+       x = "Carat",
+       y = "Price in US Dollars")
+```
+
+&lt;img src="data-viz_files/figure-html/unnamed-chunk-4-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
-### Adding aesthetics
+### Assigning Aesthetics
 
-What's the different between two plots ?
+.pull-left[
+![](data-viz_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
 
-color all points
-color by variable 
+-- 
+
+Color based on a variable
+]
+
+.pull-right[
+![](data-viz_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
+
+--
+
+Same color for all observations
+]
 
 ---
 

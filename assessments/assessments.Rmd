@@ -42,6 +42,7 @@ question("Which of the following best describes the points on the plot?",
 - Add itermediate problem, where they have to fill in code inside the brackets
 - Fix questions 
 - Add codebook at top
+- Add problem intro briefly explaining the data and variables used
 -->
 
 ## Parson's Problem 

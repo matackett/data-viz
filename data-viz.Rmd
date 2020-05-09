@@ -51,30 +51,69 @@ ggplot(data = [dataset], aes(x = [x-var], y = [y-var])) +
 
 
 ---
+### Demo
 
-### diamonds data
-
-```{r diamond-plot, include = F}
+.pull-left[
+```{r echo = F}
 ggplot(data = diamonds, aes(x = carat, y = price)) +
   geom_point() + 
-  labs(title = "title", 
-       x = "carat",
-       y = "price")
+  labs(title = "Price vs. Carat", 
+       x = "Carat",
+       y = "Price in US Dollars")
+```
+]
+
+.pull-right[
+.vertical-center[
+.question[
+**Let's take a look at how to create this plot in R.**
+]
+]
+]
+
+---
+
+### Our first plot 
+
+```{r, fig.height = 4.5, fig.width = 9, fig.align = "center"}
+ggplot(data = diamonds, aes(x = carat, y = price)) +
+  geom_point() + 
+  labs(title = "Price vs. Carat", 
+       x = "Carat",
+       y = "Price in US Dollars")
 ```
 
 ---
 
-### Live demo, let's see what's happening. 
+### Assigning Aesthetics
 
+.pull-left[
+```{r, echo = F}
+ggplot(data = diamonds, aes(x = carat, y = price, color = cut)) +
+  geom_point() + 
+  labs(title = "Price vs. Carat", 
+       x = "Carat",
+       y = "Price in US Dollars")
+```
 
----
+-- 
 
-### Adding aesthetics
+Color based on a variable
+]
 
-What's the different between two plots ?
+.pull-right[
+```{r echo = F}
+ggplot(data = diamonds, aes(x = carat, y = price)) +
+  geom_point(color = "purple") + 
+  labs(title = "Price vs. Carat", 
+       x = "Carat",
+       y = "Price in US Dollars")
+```
 
-color all points
-color by variable 
+--
+
+Same color for all observations
+]
 
 ---
 
