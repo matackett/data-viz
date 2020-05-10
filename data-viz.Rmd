@@ -1,5 +1,5 @@
 ---
-title: "Data Visualization with ggplot2 <br> `r emo::ji('bar_chart')`"
+title: "Visualizing data with ggplot2 <br> `r emo::ji('bar_chart')`"
 author: "Maria Tackett"
 date: "05.12.20"
 output:
@@ -268,9 +268,14 @@ Let's put it all together. Create a plot of `price` by `carat`, with an aestheti
 
 ---
 
-## Exercise
+## Your turn
 
+.question[
+It's your turn to create data visualizations using `ggplot2`!
 
+- Go to https://matackett.shinyapps.io/data-viz/.
+- Click on *Exercise 2: Putting it all together*.
+]
 
 ---
 
