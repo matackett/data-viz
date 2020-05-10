@@ -21,13 +21,13 @@ body {
 h2 {
   font-family: 'Open Sans'; sans-serif;
   font-weight: bold;
-  color: #00897B;
+  color: #339898;
   margin: 0.25em 0 0.5em 0;
 }
 h1, h3 {
   font-family: 'Open Sans'; sans-serif;
   font-weight: bold;
-  color: #00897B;
+  color: #339898;
 }
 
 a, a > code {
@@ -56,8 +56,14 @@ a, a > code {
   font-weight: bold;
 }
 
+.code-chunk .remark-code { 
+  font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace; 
+  font-size: 18pt;
+  background-color: #dddddd;
+}
+
 .inverse {
-  background-color: #00897B;
+  background-color: #339898;
   color: #ffffff;
   /* text-shadow: 0 0 20px #333; */
 }
@@ -173,7 +179,7 @@ thead, tfoot, tr:nth-child(even) { background: #eee }
 }
 
 .vocab2 {
-  color: #00897B;
+  color: #339898;
   font-weight: bold;
   font-size: 22pt;
 }
