@@ -4,11 +4,11 @@
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 
 html{
-  font-size: 18pt; 
+  font-size: 22pt; 
 }
 
 p {
-  font-size: 18pt;
+  font-size: 22pt;
 }
 
 body { 
@@ -16,7 +16,7 @@ body {
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-weight: 400;
   color: #333333;
-  font-size: 20pt;
+  font-size: 22pt;
 }
 h2 {
   font-family: 'Open Sans'; sans-serif;
@@ -36,7 +36,7 @@ a, a > code {
   font-weight: bold;
   color: #993399;
   text-decoration: underline;
-  font-size: 18pt;
+  font-size: 22pt;
 }
 
 .footnote {
@@ -47,7 +47,7 @@ a, a > code {
 }
 .remark-code { 
   font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace; 
-  font-size: 18pt;
+  font-size: 22pt;
 }
 .remark-code-line-highlighted     { background-color: #f6e1fa; }
 
@@ -104,7 +104,7 @@ ul {
 
 li{
   margin: 10px 0;
-  font-size: 24pt;
+  font-size: 22pt;
 }
 
 .large { font-size: 130% }
@@ -139,7 +139,7 @@ thead, tfoot, tr:nth-child(even) { background: #eee }
 }
 
 .remark-slide-content{
-  font-size: 24px;
+  font-size: 22pt;
 }
 
 .remark-slide-content:after {
@@ -169,19 +169,19 @@ thead, tfoot, tr:nth-child(even) { background: #eee }
 .vocab {
   color: #993399;
   font-weight: bold;
-  font-size: 16pt;
+  font-size: 22pt;
 }
 
 .vocab2 {
   color: #00897B;
   font-weight: bold;
-  font-size: 16pt;
+  font-size: 22pt;
 }
 
 .vocab3 {
   color: #022CFA;
   font-weight: bold;
-  font-size: 16pt;
+  font-size: 22pt;
 }
 
 .question {
