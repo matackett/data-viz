@@ -17,12 +17,24 @@ class: center, middle, inverse, title-slide
 ---
 
 
-### Goals for today 
-
-- list of goals on left 
-- output of what they can make on right
 
 
+
+
+### Learning objectives
+
+.pull-left[
+- Understand basic syntax for `ggplot`
+
+- Add aesthetics to a plot 
+
+- Create smaller plots for subsets of data
+]
+
+.pull-right[
+
+![](data-viz_files/figure-html/unnamed-chunk-2-1.png)&lt;!-- --&gt;
+]
 
 ---
 ## ggplot2 in tidyverse
@@ -32,13 +44,13 @@ class: center, middle, inverse, title-slide
 ]
 
 .pull-right[
-- **ggplot2** is tidyverse's data visualization package
+- .vocab[ggplot2] is tidyverse's data visualization package
 
-- The `gg` in "ggplot2" stands for Grammar of Graphics
+- The **`gg`** in "ggplot2" stands for Grammar of Graphics
 
 - It is inspired by the book **Grammar of Graphics** by Leland Wilkinson
 
-&lt;img src="img/gg-book.jpg" width="40%" style="display: block; margin: auto;" /&gt;
+
 
 ]
 ---
@@ -53,12 +65,25 @@ A .vocab[grammar of graphics] is a tool that enables us to concisely describe th
 
 ---
 
-### example plot and code
+### Diamonds data
 
+.pull-left[
+- We will use the **diamonds** data set in the `ggplot2` package. 
 
-![](img/diamonds.jpg)
-)
-- Use diamonds dataset
+- Contains prices and other attributes of about 54,000 diamonds. 
+
+- We'll focus on the following variables: 
+    - `cut`
+    - `clarity`
+    - `carat`
+    - `color`
+    - `price`
+]
+  
+.pull-right[
+
+![](img/diamonds.jpg)&lt;!-- --&gt;
+]
 
 ---
 
@@ -72,23 +97,24 @@ ggplot(data = [dataset], aes(x = [x-var], y = [y-var])) +
 ```
 
 ---
-### Demo
+
+### Our first plot
 
 .pull-left[
-![](data-viz_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
+![](data-viz_files/figure-html/unnamed-chunk-8-1.png)&lt;!-- --&gt;
 ]
 
 .pull-right[
 .vertical-center[
 .question[
-**Let's take a look at how to create this plot in R.**
+**Let's create this plot in R.**
 ]
 ]
 ]
 
 ---
 
-### Our first plot 
+### Plot of `price` vs. `carat`
 
 
 ```r
@@ -99,13 +125,13 @@ ggplot(data = diamonds, aes(x = carat, y = price)) +
        title = "Price vs. Carat")
 ```
 
-&lt;img src="data-viz_files/figure-html/unnamed-chunk-7-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="data-viz_files/figure-html/unnamed-chunk-9-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
 ### Aesthetics 
 
-We can incorporate various aesthetics, i.e. features, to our plot to incoporate additional variables or just customize the plot. These aesthetics include 
+We can add .vocab[aesthetics] (features) to our plot to incoporate additional variables or to customize the plot. These aesthetics include
 
 - `color`
 - `shape`
@@ -114,37 +140,34 @@ We can incorporate various aesthetics, i.e. features, to our plot to incoporate 
 
 ---
 
-### Assigning Aesthetics
+### Adding Aesthetics
 
 .pull-left[
-&lt;img src="data-viz_files/figure-html/unnamed-chunk-8-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="data-viz_files/figure-html/unnamed-chunk-10-1.png" style="display: block; margin: auto;" /&gt;
 
-.center[
-**Color based on value of `cut`.**
-**Aesthetic feature mapped to a variable inside `aes()`.**
-]
-
+- Aesthetic based on value of `cut`.
+- Aesthetic defined inside `aes()`.
 ]
 
 .pull-right[
-&lt;img src="data-viz_files/figure-html/unnamed-chunk-9-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="data-viz_files/figure-html/unnamed-chunk-11-1.png" style="display: block; margin: auto;" /&gt;
 
-.center[
-**Same color for all observations.**
-**Aesthetic feature defined outside of `aes()`.** 
-]
+- Same aesthetic for all observations.
+- Aesthetic defined outside of `aes()`.
 ]
 
 ---
 
-### Demo
+class: middle, center
 
-- Let's change the color and shape
+.question[
+Let's add color and shape aesthetics to our plot. 
+]
 
- 
---- 
- 
-### Formative assessment
+---
+
+### Exercise 
+
 Multiple choice question 
 
 - Do what is wrong with this plot, where they assigned blue in the as the aesthetic. 
@@ -153,9 +176,9 @@ Multiple choice question
 
 ---
 
-## Faceting: Display subsets of data
+## Faceting
 
-Use **faceting** to create smaller plots that display different subsets of the data.
+Use .vocab[faceting] to create smaller plots that display different subsets of the data.
 
 
 ```r
@@ -164,32 +187,27 @@ ggplot(data = diamonds, aes(x = carat, y = price)) +
   labs(x = "Carat",
        y = "Price",
        title = "Price vs. Carat") + 
-* facet_wrap(~ cut)
+* facet_wrap(~ clarity)
 ```
 
 ---
 
+## Faceting by `clarity`
 
-```r
-ggplot(data = diamonds, aes(x = carat, y = price)) +
-  geom_point() + 
-  labs(x = "Carat",
-       y = "Price",
-       title = "Price vs. Carat", 
-*      subtitle = "Faceted by Cut") +
-* facet_wrap(~ cut)
-```
-
-&lt;img src="data-viz_files/figure-html/unnamed-chunk-11-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="data-viz_files/figure-html/unnamed-chunk-13-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
-## Let's put it all together
+class: middle, center
+
+.question[
+Let's put it all together. Create a plot of `price` by `carat`, with an aesthetic by `cut`, faceted by `clarity`.
+]
 
 
 ---
 
-## Parson's Problem 
+## Exercise
 
 
 ---
@@ -199,7 +217,7 @@ ggplot(data = diamonds, aes(x = carat, y = price)) +
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
 <script>var slideshow = remark.create({
-"highlightStyle": "solarized-dark",
+"highlightStyle": "github",
 "highlightLines": true,
 "countIncrementalSlides": false,
 "slideNumberFormat": "%current%",

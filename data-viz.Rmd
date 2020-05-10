@@ -4,9 +4,7 @@ author: "Maria Tackett"
 date: "05.12.20"
 output:
   xaringan::moon_reader:
-  #  mathjax: "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_HTMLorMML"
     css: "slide-design.css"
- #   logo: img/sta210-sticker-icon.png
     lib_dir: libs
     nature:
       highlightStyle: github
@@ -16,16 +14,44 @@ output:
       ratio: 16:9
 ---
 
-### Goals for today 
+```{r set-up, echo = F}
+knitr::opts_chunk$set(warning = F, 
+                      message = F)
 
-- list of goals on left 
-- output of what they can make on right
+# Set dpi and height for images
+knitr::opts_chunk$set(dpi = 100) 
+```
 
 ```{r echo = F, warning = F, message = F}
 library(tidyverse)
 ```
 
+## Learning objectives
+
+.pull-left[
+- Understand basic syntax for `ggplot`
+
+- Add aesthetics to a plot 
+
+- Create smaller plots for subsets of data
+]
+
+.pull-right[
+
+```{r echo = F}
+ggplot(data = diamonds, aes(x = carat, y = price, color = cut)) +
+  geom_point() + 
+  labs(x = "Carat",
+       y = "Price",
+       color = "Cut",
+       title = "Price vs. Carat by Cut",
+       subtitle = "Faceted by Clarity") + 
+  facet_wrap(~ clarity)
+```
+]
+
 ---
+
 ## ggplot2 in tidyverse
 
 .pull-left[
@@ -35,13 +61,13 @@ knitr::include_graphics("img/ggplot2-part-of-tidyverse.png")
 ]
 
 .pull-right[
-- **ggplot2** is tidyverse's data visualization package
+- .vocab[ggplot2] is tidyverse's data visualization package
 
-- The `gg` in "ggplot2" stands for Grammar of Graphics
+- The **`gg`** in "ggplot2" stands for Grammar of Graphics
 
 - It is inspired by the book **Grammar of Graphics** by Leland Wilkinson
 
-```{r echo = F, out.width = "40%", fig.align = "center"}
+```{r echo = F, eval = F, out.width = "35%", fig.align = "center"}
 knitr::include_graphics("img/gg-book.jpg")
 ```
 
@@ -60,16 +86,31 @@ knitr::include_graphics("img/gg-layers.png")
 
 ---
 
-### example plot and code
+## Diamonds data
 
+.pull-left[
+- We will use the **diamonds** data set in the `ggplot2` package. 
 
-![](img/diamonds.jpg)
-)
-- Use diamonds dataset
+- Contains prices and other attributes of about 54,000 diamonds. 
+
+- We'll focus on the following variables: 
+    - `cut`
+    - `clarity`
+    - `carat`
+    - `color`
+    - `price`
+]
+  
+.pull-right[
+
+```{r echo = F}
+knitr::include_graphics("img/diamonds.jpg")
+```
+]
 
 ---
 
-### Basic `ggplot` syntax
+## Basic `ggplot` syntax
 
 ```{r eval = F}
 ggplot(data = [dataset], aes(x = [x-var], y = [y-var])) +
@@ -78,7 +119,8 @@ ggplot(data = [dataset], aes(x = [x-var], y = [y-var])) +
 ```
 
 ---
-### Demo
+
+## Our first plot
 
 .pull-left[
 ```{r echo = F}
@@ -93,14 +135,14 @@ ggplot(data = diamonds, aes(x = carat, y = price)) +
 .pull-right[
 .vertical-center[
 .question[
-**Let's take a look at how to create this plot in R.**
+**Let's create this plot in R.**
 ]
 ]
 ]
 
 ---
 
-### Our first plot 
+## Plot of `price` vs. `carat`
 
 ```{r, fig.height = 4.5, fig.width = 9, fig.align = "center"}
 ggplot(data = diamonds, aes(x = carat, y = price)) +
@@ -112,9 +154,9 @@ ggplot(data = diamonds, aes(x = carat, y = price)) +
 
 ---
 
-### Aesthetics 
+## Aesthetics 
 
-We can incorporate various aesthetics, i.e. features, to our plot to incoporate additional variables or just customize the plot. These aesthetics include 
+We can add .vocab[aesthetics] (features) to our plot to incoporate additional variables or to customize the plot. These aesthetics include
 
 - `color`
 - `shape`
@@ -123,7 +165,7 @@ We can incorporate various aesthetics, i.e. features, to our plot to incoporate 
 
 ---
 
-### Assigning Aesthetics
+## Adding Aesthetics
 
 .pull-left[
 ```{r, echo = F, fig.height = 5, fig.align = "center"}
@@ -134,11 +176,8 @@ ggplot(data = diamonds, aes(x = carat, y = price, color = cut)) +
        title = "Price vs. Carat")
 ```
 
-.center[
-**Color based on value of `cut`.**
-**Aesthetic feature mapped to a variable inside `aes()`.**
-]
-
+- Aesthetic based on value of `cut`.
+- Aesthetic defined inside `aes()`.
 ]
 
 .pull-right[
@@ -150,22 +189,22 @@ ggplot(data = diamonds, aes(x = carat, y = price)) +
        title = "Price vs. Carat")
 ```
 
-.center[
-**Same color for all observations.**
-**Aesthetic feature defined outside of `aes()`.** 
-]
+- Same aesthetic for all observations.
+- Aesthetic defined outside of `aes()`.
 ]
 
 ---
 
-### Demo
+class: middle, center
 
-- Let's change the color and shape
+.question[
+Let's add color and shape aesthetics to our plot. 
+]
 
- 
---- 
- 
-### Formative assessment
+---
+
+## Exercise 
+
 Multiple choice question 
 
 - Do what is wrong with this plot, where they assigned blue in the as the aesthetic. 
@@ -174,9 +213,9 @@ Multiple choice question
 
 ---
 
-## Faceting: Display subsets of data
+## Faceting
 
-Use **faceting** to create smaller plots that display different subsets of the data.
+Use .vocab[faceting] to create smaller plots that display different subsets of the data.
 
 ```{r, fig.height = 5 , eval = F}
 ggplot(data = diamonds, aes(x = carat, y = price)) +
@@ -184,34 +223,40 @@ ggplot(data = diamonds, aes(x = carat, y = price)) +
   labs(x = "Carat",
        y = "Price",
        title = "Price vs. Carat") + 
-  facet_wrap(~ cut) #<<
+  facet_wrap(~ clarity) #<<
 ```
 
 ---
 
-```{r, fig.height = 5, fig.align = "center"}
+## Faceting by `clarity`
+
+```{r, echo = F, fig.height = 5, fig.align = "center"}
 ggplot(data = diamonds, aes(x = carat, y = price)) +
   geom_point() + 
   labs(x = "Carat",
        y = "Price",
        title = "Price vs. Carat", 
-       subtitle = "Faceted by Cut") + #<<
-  facet_wrap(~ cut) #<<
+       subtitle = "Faceted by Clarity") + #<<
+  facet_wrap(~ clarity) #<<
 ```
 
 ---
 
-## Let's put it all together
+class: middle, center
+
+.question[
+Let's put it all together. Create a plot of `price` by `carat`, with an aesthetic by `cut`, faceted by `clarity`.
+]
 
 
 ---
 
-## Parson's Problem 
+## Exercise
 
 
 ---
 
-### Next steps
+## Next steps
 
 
 
