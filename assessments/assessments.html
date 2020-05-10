@@ -116,11 +116,11 @@ $(document).ready(function () {
 
 <div class="topics">
 
-<div id="section-exercise-1" class="section level2">
-<h2>Exercise 1</h2>
+<div id="section-exercise-1-aesthetics" class="section level2">
+<h2>Exercise 1: Aesthetics</h2>
 <p>Consider the code below:</p>
-<pre class="r"><code>ggplot(data = Riders, aes(x = highT, y = riders)) +
-  geom_point(aes(shape = day), color = &quot;blue&quot;)</code></pre>
+<pre class="r"><code>ggplot(data = diamonds, aes(x = carat, y = price)) +
+  geom_point(aes(shape = cut), color = &quot;blue&quot;)</code></pre>
 <div class="panel panel-default">
 <div data-label="aes-quest" class="tutorial-question panel-body">
 <div id="aes-quest-answer_container" class="shiny-html-output"></div>
@@ -135,10 +135,23 @@ $(document).ready(function () {
 - Add itermediate problem, where they have to fill in code inside the brackets
 - Fix questions 
 - Add codebook at top
+- Add problem intro briefly explaining the data and variables used
 -->
 </div>
-<div id="section-parsons-problem" class="section level2">
-<h2>Parson’s Problem</h2>
+<div id="section-exercise-2-putting-it-all-together" class="section level2">
+<h2>Exercise 2: Putting it all together</h2>
+<p>Let’s put everything together to visualize relationships between multiple variables. For the following exercises, we will use the <code>Riders</code> dataset from the MosaicData package. This dataset contains daily data on the weather conditions and number of users on a Massachusetts rail trail. The data were collected from April 5, 2005 to November 15, 2005. You can learn more about the dataset by typing <code>??mosaicData::Riders</code> in the console.</p>
+<p>For now, we will focus on the following variables:</p>
+<ul>
+<li><code>highT</code>: high temperature for the day (in degrees Fahrenheit)</li>
+<li><code>lowT</code>: low temperature for the day (in degrees Fahrenheit)</li>
+<li><code>clouds</code>: measure of cloud cover (in oktas)</li>
+<li><code>precip</code>: inches of precipitation</li>
+<li><code>weekday</code>: type of day - N: weekend or holiday, Y: non-holiday weekday</li>
+<li><code>day</code>: day of the week - Monday, Tuesday, Wednesday, etc.</li>
+<li><code>riders</code>: estimated number of trail crossings that day</li>
+<li><code>month</code>: month extracted from <code>date</code></li>
+</ul>
 <div id="section-parsons-problem---1" class="section level3">
 <h3>Parson’s Problem - 1</h3>
 <p><img src="assessments_files/figure-html/unnamed-chunk-3-1.png" width="624" /></p>
@@ -189,7 +202,7 @@ learnr:::register_http_handlers(session, metadata = NULL)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "aes-quest", question = structure("Which of the following best describes the points on the plot?", html = TRUE, class = c("html", "character")), answers = list(structure(list(id = "lnr_ans_c655eef",     option = "The shape is the same for all points.", value = "The shape is the same for all points.",     label = structure("The shape is the same for all points.", html = TRUE, class = c("html",     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", "tutorial_quiz_answer")), structure(list(id = "lnr_ans_d3f1522",     option = "The color is the same for all points.", value = "The color is the same for all points.",     label = structure("The color is the same for all points.", html = TRUE, class = c("html",     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", "tutorial_quiz_answer")), structure(list(id = "lnr_ans_976c5ec",     option = "The color and shape are the same for all points.",     value = "The color and shape are the same for all points.",     label = structure("The color and shape are the same for all points.", html = TRUE, class = c("html",     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", "character")), try_again = structure("Try Again", html = TRUE, class = c("html", "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", "character")), message = NULL, post_message = NULL), ids = list(    answer = "aes-quest-answer", question = "aes-quest"), loading = structure("<strong>Loading:<\u002fstrong> \nWhich of the following best describes the points on the plot?\n<br/><br/><br/>", html = TRUE, class = c("html", "character")), random_answer_order = FALSE, allow_retry = FALSE,     seed = 1481110604.3103, options = list()), class = c("learnr_radio", "tutorial_question")))
+learnr:::question_prerendered_chunk(structure(list(type = "learnr_radio", label = "aes-quest", question = structure("Which of the following best describes the points on the plot?", html = TRUE, class = c("html", "character")), answers = list(structure(list(id = "lnr_ans_334b03b",     option = "The shape is the same for all points.", value = "The shape is the same for all points.",     label = structure("The shape is the same for all points.", html = TRUE, class = c("html",     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", "tutorial_quiz_answer")), structure(list(id = "lnr_ans_fc814a4",     option = "The color is the same for all points.", value = "The color is the same for all points.",     label = structure("The color is the same for all points.", html = TRUE, class = c("html",     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer", "tutorial_quiz_answer")), structure(list(id = "lnr_ans_57d7dbe",     option = "The color and shape are the same for all points.",     value = "The color and shape are the same for all points.",     label = structure("The color and shape are the same for all points.", html = TRUE, class = c("html",     "character")), correct = FALSE, message = NULL), class = c("tutorial_question_answer", "tutorial_quiz_answer"))), button_labels = list(submit = structure("Submit Answer", html = TRUE, class = c("html", "character")), try_again = structure("Try Again", html = TRUE, class = c("html", "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html", "character")), try_again = structure("Incorrect", html = TRUE, class = c("html", "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html", "character")), message = NULL, post_message = NULL), ids = list(    answer = "aes-quest-answer", question = "aes-quest"), loading = structure("<strong>Loading:<\u002fstrong> \nWhich of the following best describes the points on the plot?\n<br/><br/><br/>", html = TRUE, class = c("html", "character")), random_answer_order = FALSE, allow_retry = FALSE,     seed = 939754453.062393, options = list()), class = c("learnr_radio", "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">

@@ -51,8 +51,6 @@ class: center, middle, inverse, title-slide
 
 - It is inspired by the book **Grammar of Graphics** by Leland Wilkinson.
 
-
-
 ]
 ---
 
@@ -61,7 +59,7 @@ class: center, middle, inverse, title-slide
 A .vocab[grammar of graphics] is a tool that enables us to concisely describe the components of a graphic.
 
 .center[
-&lt;img src="img/gg-layers.png" width="80%" /&gt;
+&lt;img src="img/gg-layers.png" width="75%" /&gt;
 ]
 
 ---
@@ -121,7 +119,7 @@ ggplot(data = diamonds,
 ## Our first plot
 
 .pull-left[
-![](data-viz_files/figure-html/unnamed-chunk-8-1.png)&lt;!-- --&gt;
+![](data-viz_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
 ]
 
 .pull-right[
@@ -136,7 +134,7 @@ Let's create this plot in R.
 
 ## Aesthetics 
 
-We can add .vocab[aesthetics] (features) to our plot to incoporate additional variables or to customize the plot. These aesthetics include
+We can add .vocab[aesthetics] (features) to our plot to incorporate additional variables or to customize the plot. These aesthetics include
 
 - `color`
 - `shape`
@@ -148,7 +146,7 @@ We can add .vocab[aesthetics] (features) to our plot to incoporate additional va
 ## Adding aesthetics
 
 .pull-left[
-&lt;img src="data-viz_files/figure-html/unnamed-chunk-9-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="data-viz_files/figure-html/unnamed-chunk-8-1.png" style="display: block; margin: auto;" /&gt;
 
 - Aesthetic based on value of `cut`.
 
@@ -156,7 +154,7 @@ We can add .vocab[aesthetics] (features) to our plot to incoporate additional va
 ]
 
 .pull-right[
-&lt;img src="data-viz_files/figure-html/unnamed-chunk-10-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="data-viz_files/figure-html/unnamed-chunk-9-1.png" style="display: block; margin: auto;" /&gt;
 
 - Same aesthetic for all observations.
 - Aesthetic defined outside of `aes()`.
@@ -214,7 +212,7 @@ ggplot(data = diamonds, aes(x = carat, y = price)) +
 
 ## Faceting by `clarity`
 
-&lt;img src="data-viz_files/figure-html/unnamed-chunk-13-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="data-viz_files/figure-html/unnamed-chunk-12-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -237,7 +235,7 @@ Let's put it all together. Create a plot of `price` by `carat`, with an aestheti
 
 - ["Data visualisation" in *R for Data Science*](https://r4ds.had.co.nz/data-visualisation.html)
 
-- [2ggplot2 Reference](https://ggplot2.tidyverse.org/reference/)
+- [ggplot2 Reference](https://ggplot2.tidyverse.org/reference/)
 
 - [Data Visualization Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
 

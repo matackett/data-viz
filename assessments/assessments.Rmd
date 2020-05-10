@@ -19,7 +19,7 @@ library(mosaicData)
 library(lubridate)
 ```
 
-## Exercise 1
+## Exercise 1: Aesthetics
 
 Consider the code below: 
 
@@ -45,7 +45,20 @@ question("Which of the following best describes the points on the plot?",
 - Add problem intro briefly explaining the data and variables used
 -->
 
-## Parson's Problem 
+## Exercise 2: Putting it all together
+
+Let's put everything together to visualize relationships between multiple variables. For the following exercises, we will use the `Riders` dataset from the MosaicData package. This dataset contains daily data on the weather conditions and number of users on a Massachusetts rail trail. The data were collected from April 5, 2005 to November 15, 2005. You can learn more about the dataset by typing `??mosaicData::Riders` in the console. 
+
+For now, we will focus on the following variables: 
+
+- `highT`: high temperature for the day (in degrees Fahrenheit)
+- `lowT`:  low temperature for the day (in degrees Fahrenheit)
+- `clouds`: measure of cloud cover (in oktas)
+- `precip`: inches of precipitation
+- `weekday`: type of day - N: weekend or holiday, Y: non-holiday weekday
+- `day`: day of the week - Monday, Tuesday, Wednesday, etc. 
+- `riders`: estimated number of trail crossings that day
+- `month`: month extracted from `date`
 
 ### Parson's Problem - 1
 
@@ -59,7 +72,8 @@ Riders <- Riders %>%
     month == 7 ~ "July", 
     month == 8 ~ "August", 
     TRUE ~ "November"
-  ))
+  ), 
+  day = fct_relevel(day, "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"))
 ```
 
 
@@ -70,7 +84,7 @@ ggplot(data = Riders, aes(x = highT, y = riders, color = clouds)) +
        y = "Riders", 
        color = "Cloud Cover",
        title = "Riders vs. High Temp. & Cloud Cover", 
-       subtitle = "by Weekday") +
+       subtitle = "Faceted by Weekday") +
   facet_wrap(~ weekday)
 ```
 
@@ -98,7 +112,7 @@ ggplot(data = Riders, aes(x = clouds, y = precip, color = weekday)) +
        y = "Precipitation", 
        color = "Weekday",
        title = "Precipitation vs. Cloud Cover & Weekday", 
-       subtitle = "by Month") +
+       subtitle = "Faceted by Month") +
   facet_wrap(~ month)
 ```
 
@@ -121,8 +135,8 @@ ggplot(data = Riders, aes(x = lowT, y = riders, color = day)) +
        y = "Riders", 
        color = "Day",
        title = "Riders. vs. Low Temp & Day", 
-       subtitle = "Weekdays vs. Weekends") +
-  facet_wrap(~ weekday)
+       subtitle = "Faceted by Month") +
+  facet_wrap(~ month)
 ```
 
 ```{r parsons-3, exercise = TRUE, exercise.eval = FALSE}

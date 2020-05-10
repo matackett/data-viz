@@ -67,10 +67,6 @@ knitr::include_graphics("img/ggplot2-part-of-tidyverse.png")
 
 - It is inspired by the book **Grammar of Graphics** by Leland Wilkinson.
 
-```{r echo = F, eval = F, out.width = "35%", fig.align = "center"}
-knitr::include_graphics("img/gg-book.jpg")
-```
-
 ]
 ---
 
@@ -79,7 +75,7 @@ knitr::include_graphics("img/gg-book.jpg")
 A .vocab[grammar of graphics] is a tool that enables us to concisely describe the components of a graphic.
 
 .center[
-```{r echo = F, out.width = '80%'}
+```{r echo = F, out.width = '75%'}
 knitr::include_graphics("img/gg-layers.png")
 ```
 ]
@@ -163,7 +159,7 @@ Let's create this plot in R.
 
 ## Aesthetics 
 
-We can add .vocab[aesthetics] (features) to our plot to incoporate additional variables or to customize the plot. These aesthetics include
+We can add .vocab[aesthetics] (features) to our plot to incorporate additional variables or to customize the plot. These aesthetics include
 
 - `color`
 - `shape`
@@ -282,7 +278,7 @@ Let's put it all together. Create a plot of `price` by `carat`, with an aestheti
 
 - ["Data visualisation" in *R for Data Science*](https://r4ds.had.co.nz/data-visualisation.html)
 
-- [2ggplot2 Reference](https://ggplot2.tidyverse.org/reference/)
+- [ggplot2 Reference](https://ggplot2.tidyverse.org/reference/)
 
 - [Data Visualization Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
 
