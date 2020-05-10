@@ -29,7 +29,7 @@ library(tidyverse)
 ## Learning objectives
 
 .pull-left[
-- Understand basic syntax for `ggplot`
+- Create a scatterplot using `ggplot`
 
 - Add aesthetics to a plot 
 
@@ -61,11 +61,11 @@ knitr::include_graphics("img/ggplot2-part-of-tidyverse.png")
 ]
 
 .pull-right[
-- .vocab[ggplot2] is tidyverse's data visualization package
+- .vocab[ggplot2] is tidyverse's data visualization package.
 
-- The **`gg`** in "ggplot2" stands for Grammar of Graphics
+- The **`gg`** in "ggplot2" stands for "grammar of graphics".
 
-- It is inspired by the book **Grammar of Graphics** by Leland Wilkinson
+- It is inspired by the book **Grammar of Graphics** by Leland Wilkinson.
 
 ```{r echo = F, eval = F, out.width = "35%", fig.align = "center"}
 knitr::include_graphics("img/gg-book.jpg")
@@ -76,7 +76,7 @@ knitr::include_graphics("img/gg-book.jpg")
 
 ## Grammar of Graphics
 
-A .vocab[grammar of graphics] is a tool that enables us to concisely describe the components of a graphic
+A .vocab[grammar of graphics] is a tool that enables us to concisely describe the components of a graphic.
 
 .center[
 ```{r echo = F, out.width = '80%'}
@@ -86,14 +86,14 @@ knitr::include_graphics("img/gg-layers.png")
 
 ---
 
-## Diamonds data
+## Today's data
 
 .pull-left[
-- We will use the **diamonds** data set in the `ggplot2` package. 
+- We will use the **diamonds** data set in the `ggplot2` package
 
-- Contains prices and other attributes of about 54,000 diamonds. 
+- Contains prices and other attributes of about 54,000 diamonds
 
-- We'll focus on the following variables: 
+- Variables:
     - `cut`
     - `clarity`
     - `carat`
@@ -112,11 +112,30 @@ knitr::include_graphics("img/diamonds.jpg")
 
 ## Basic `ggplot` syntax
 
+.code-chunk[
 ```{r eval = F}
 ggplot(data = [dataset], aes(x = [x-var], y = [y-var])) +
   geom_xx() + 
   other options
 ```
+]
+--
+
+.left-code[
+.code-chunk[
+```{r basic-plot, eval = F}
+ggplot(data = diamonds, 
+       aes(x = carat, 
+           y = price)) +
+  geom_point()
+```
+]
+]
+
+.right-plot[
+```{r basic-plot-out, ref.label="basic-plot", echo=FALSE, fig.align = "center", out.width="60%"}
+```
+]
 
 ---
 
@@ -135,22 +154,10 @@ ggplot(data = diamonds, aes(x = carat, y = price)) +
 .pull-right[
 .vertical-center[
 .question[
-**Let's create this plot in R.**
+Let's create this plot in R.
 ]
 ]
 ]
-
----
-
-## Plot of `price` vs. `carat`
-
-```{r, fig.height = 4.5, fig.width = 9, fig.align = "center"}
-ggplot(data = diamonds, aes(x = carat, y = price)) +
-  geom_point() + 
-  labs(x = "Carat",
-       y = "Price",
-       title = "Price vs. Carat")
-```
 
 ---
 
@@ -165,7 +172,7 @@ We can add .vocab[aesthetics] (features) to our plot to incoporate additional va
 
 ---
 
-## Adding Aesthetics
+## Adding aesthetics
 
 .pull-left[
 ```{r, echo = F, fig.height = 5, fig.align = "center"}
@@ -205,11 +212,22 @@ Let's add color and shape aesthetics to our plot.
 
 ## Exercise 
 
-Multiple choice question 
+Consider the following code: 
 
-- Do what is wrong with this plot, where they assigned blue in the as the aesthetic. 
+.code-chunk[
+```{r echo = TRUE, eval = F}
+ggplot(data = diamonds, aes(x = carat, y = price)) +
+  geom_point(aes(shape = cut), color = "blue")
+```
+]
 
-- Change to diamond data.
+Which of the following best describes the points on the plot?
+
+**a.** The shape is the same for all points.
+
+**b.** The color is the same for all points.
+
+**c.** The color and shape are the same for all points.
 
 ---
 
@@ -217,6 +235,7 @@ Multiple choice question
 
 Use .vocab[faceting] to create smaller plots that display different subsets of the data.
 
+.code-chunk[
 ```{r, fig.height = 5 , eval = F}
 ggplot(data = diamonds, aes(x = carat, y = price)) +
   geom_point() + 
@@ -225,6 +244,7 @@ ggplot(data = diamonds, aes(x = carat, y = price)) +
        title = "Price vs. Carat") + 
   facet_wrap(~ clarity) #<<
 ```
+]
 
 ---
 
@@ -252,6 +272,7 @@ Let's put it all together. Create a plot of `price` by `carat`, with an aestheti
 ---
 
 ## Exercise
+
 
 
 ---

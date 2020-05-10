@@ -21,10 +21,10 @@ class: center, middle, inverse, title-slide
 
 
 
-### Learning objectives
+## Learning objectives
 
 .pull-left[
-- Understand basic syntax for `ggplot`
+- Create a scatterplot using `ggplot`
 
 - Add aesthetics to a plot 
 
@@ -37,6 +37,7 @@ class: center, middle, inverse, title-slide
 ]
 
 ---
+
 ## ggplot2 in tidyverse
 
 .pull-left[
@@ -44,11 +45,11 @@ class: center, middle, inverse, title-slide
 ]
 
 .pull-right[
-- .vocab[ggplot2] is tidyverse's data visualization package
+- .vocab[ggplot2] is tidyverse's data visualization package.
 
-- The **`gg`** in "ggplot2" stands for Grammar of Graphics
+- The **`gg`** in "ggplot2" stands for "grammar of graphics".
 
-- It is inspired by the book **Grammar of Graphics** by Leland Wilkinson
+- It is inspired by the book **Grammar of Graphics** by Leland Wilkinson.
 
 
 
@@ -57,7 +58,7 @@ class: center, middle, inverse, title-slide
 
 ## Grammar of Graphics
 
-A .vocab[grammar of graphics] is a tool that enables us to concisely describe the components of a graphic
+A .vocab[grammar of graphics] is a tool that enables us to concisely describe the components of a graphic.
 
 .center[
 &lt;img src="img/gg-layers.png" width="80%" /&gt;
@@ -65,14 +66,14 @@ A .vocab[grammar of graphics] is a tool that enables us to concisely describe th
 
 ---
 
-### Diamonds data
+## Today's data
 
 .pull-left[
-- We will use the **diamonds** data set in the `ggplot2` package. 
+- We will use the **diamonds** data set in the `ggplot2` package
 
-- Contains prices and other attributes of about 54,000 diamonds. 
+- Contains prices and other attributes of about 54,000 diamonds
 
-- We'll focus on the following variables: 
+- Variables:
     - `cut`
     - `clarity`
     - `carat`
@@ -87,18 +88,37 @@ A .vocab[grammar of graphics] is a tool that enables us to concisely describe th
 
 ---
 
-### Basic `ggplot` syntax
+## Basic `ggplot` syntax
 
+.code-chunk[
 
 ```r
 ggplot(data = [dataset], aes(x = [x-var], y = [y-var])) +
   geom_xx() + 
   other options
 ```
+]
+--
+
+.left-code[
+.code-chunk[
+
+```r
+ggplot(data = diamonds, 
+       aes(x = carat, 
+           y = price)) +
+  geom_point()
+```
+]
+]
+
+.right-plot[
+&lt;img src="data-viz_files/figure-html/basic-plot-out-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+]
 
 ---
 
-### Our first plot
+## Our first plot
 
 .pull-left[
 ![](data-viz_files/figure-html/unnamed-chunk-8-1.png)&lt;!-- --&gt;
@@ -107,29 +127,14 @@ ggplot(data = [dataset], aes(x = [x-var], y = [y-var])) +
 .pull-right[
 .vertical-center[
 .question[
-**Let's create this plot in R.**
+Let's create this plot in R.
 ]
 ]
 ]
 
 ---
 
-### Plot of `price` vs. `carat`
-
-
-```r
-ggplot(data = diamonds, aes(x = carat, y = price)) +
-  geom_point() + 
-  labs(x = "Carat",
-       y = "Price",
-       title = "Price vs. Carat")
-```
-
-&lt;img src="data-viz_files/figure-html/unnamed-chunk-9-1.png" style="display: block; margin: auto;" /&gt;
-
----
-
-### Aesthetics 
+## Aesthetics 
 
 We can add .vocab[aesthetics] (features) to our plot to incoporate additional variables or to customize the plot. These aesthetics include
 
@@ -140,17 +145,17 @@ We can add .vocab[aesthetics] (features) to our plot to incoporate additional va
 
 ---
 
-### Adding Aesthetics
+## Adding aesthetics
 
 .pull-left[
-&lt;img src="data-viz_files/figure-html/unnamed-chunk-10-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="data-viz_files/figure-html/unnamed-chunk-9-1.png" style="display: block; margin: auto;" /&gt;
 
 - Aesthetic based on value of `cut`.
 - Aesthetic defined inside `aes()`.
 ]
 
 .pull-right[
-&lt;img src="data-viz_files/figure-html/unnamed-chunk-11-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="data-viz_files/figure-html/unnamed-chunk-10-1.png" style="display: block; margin: auto;" /&gt;
 
 - Same aesthetic for all observations.
 - Aesthetic defined outside of `aes()`.
@@ -166,13 +171,25 @@ Let's add color and shape aesthetics to our plot.
 
 ---
 
-### Exercise 
+## Exercise 
 
-Multiple choice question 
+Consider the following code: 
 
-- Do what is wrong with this plot, where they assigned blue in the as the aesthetic. 
+.code-chunk[
 
-- Change to diamond data.
+```r
+ggplot(data = diamonds, aes(x = carat, y = price)) +
+  geom_point(aes(shape = cut), color = "blue")
+```
+]
+
+Which of the following best describes the points on the plot?
+
+**a.** The shape is the same for all points.
+
+**b.** The color is the same for all points.
+
+**c.** The color and shape are the same for all points.
 
 ---
 
@@ -180,6 +197,7 @@ Multiple choice question
 
 Use .vocab[faceting] to create smaller plots that display different subsets of the data.
 
+.code-chunk[
 
 ```r
 ggplot(data = diamonds, aes(x = carat, y = price)) +
@@ -189,6 +207,7 @@ ggplot(data = diamonds, aes(x = carat, y = price)) +
        title = "Price vs. Carat") + 
 * facet_wrap(~ clarity)
 ```
+]
 
 ---
 
@@ -210,9 +229,10 @@ Let's put it all together. Create a plot of `price` by `carat`, with an aestheti
 ## Exercise
 
 
+
 ---
 
-### Next steps
+## Next steps
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
