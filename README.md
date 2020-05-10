@@ -12,7 +12,8 @@ Short lesson on data visualizations using ggplot2
   - [PDF](data-viz.pdf)
   - [Rmd](data-viz.Rmd)
   
-:white_check_mark: Assessment: https://matackett.shinyapps.io/data-viz/
+:white_check_mark: Assessment: 
+  - [LearnR Tutorial](https://matackett.shinyapps.io/data-viz/)
   - [Rmd](assessments/assessments.Rmd)
 
 
