@@ -1,5 +1,5 @@
 ---
-title: "Data Visualization with ggplot2"
+title: "Data Visualization with ggplot2 <br> `r emo::ji('bar_chart')`"
 author: "Maria Tackett"
 date: "05.12.20"
 output:
