@@ -7,6 +7,8 @@ output:
 runtime: shiny_prerendered
 ---
 
+<!--Note:  Use development version of packrat package, so the "broken" code in the fill in the blank questions work.-->
+
 ```{r echo = F}
 library(learnr)
 knitr::opts_chunk$set(echo = FALSE, 
