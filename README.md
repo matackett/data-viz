@@ -4,11 +4,14 @@ Short lesson on data visualizations using ggplot2
 
 
 :woman_technologist: [Learner persona](learner-persona.md)
+
 :world_map: [Concept map](data-viz-concept-map.pdf)
-Lesson Slides: 
+
+:computer: Lesson Slides: 
   - [HTML](data-viz.html)
   - [PDF](data-viz.pdf)
   - [Rmd](data-viz.Rmd)
+  
 :white_check_mark: Assessment: https://matackett.shinyapps.io/data-viz/
   - [Rmd](assessments/assessments.Rmd)
 
