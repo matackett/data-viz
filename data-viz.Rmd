@@ -21,22 +21,50 @@ output:
 - list of goals on left 
 - output of what they can make on right
 
----
-
-### `ggplot2`
-
-- part of tidyverse
-- grammar of graphics
-- plots built in layers
-
-```{r}
+```{r echo = F, warning = F, message = F}
 library(tidyverse)
 ```
+
+---
+## ggplot2 in tidyverse
+
+.pull-left[
+```{r echo = F, out.width = '80%'}
+knitr::include_graphics("img/ggplot2-part-of-tidyverse.png")
+```
+]
+
+.pull-right[
+- **ggplot2** is tidyverse's data visualization package
+
+- The `gg` in "ggplot2" stands for Grammar of Graphics
+
+- It is inspired by the book **Grammar of Graphics** by Leland Wilkinson
+
+```{r echo = F, out.width = "40%", fig.align = "center"}
+knitr::include_graphics("img/gg-book.jpg")
+```
+
+]
+---
+
+## Grammar of Graphics
+
+A .vocab[grammar of graphics] is a tool that enables us to concisely describe the components of a graphic
+
+.center[
+```{r echo = F, out.width = '80%'}
+knitr::include_graphics("img/gg-layers.png")
+```
+]
 
 ---
 
 ### example plot and code
 
+
+![](img/diamonds.jpg)
+)
 - Use diamonds dataset
 
 ---
@@ -49,7 +77,6 @@ ggplot(data = [dataset], aes(x = [x-var], y = [y-var])) +
   other options
 ```
 
-
 ---
 ### Demo
 
@@ -57,9 +84,9 @@ ggplot(data = [dataset], aes(x = [x-var], y = [y-var])) +
 ```{r echo = F}
 ggplot(data = diamonds, aes(x = carat, y = price)) +
   geom_point() + 
-  labs(title = "Price vs. Carat", 
-       x = "Carat",
-       y = "Price in US Dollars")
+  labs(x = "Carat",
+       y = "Price",
+       title = "Price vs. Carat")
 ```
 ]
 
@@ -78,65 +105,113 @@ ggplot(data = diamonds, aes(x = carat, y = price)) +
 ```{r, fig.height = 4.5, fig.width = 9, fig.align = "center"}
 ggplot(data = diamonds, aes(x = carat, y = price)) +
   geom_point() + 
-  labs(title = "Price vs. Carat", 
-       x = "Carat",
-       y = "Price in US Dollars")
+  labs(x = "Carat",
+       y = "Price",
+       title = "Price vs. Carat")
 ```
+
+---
+
+### Aesthetics 
+
+We can incorporate various aesthetics, i.e. features, to our plot to incoporate additional variables or just customize the plot. These aesthetics include 
+
+- `color`
+- `shape`
+- `size`
+- `alpha` (transparency)
 
 ---
 
 ### Assigning Aesthetics
 
 .pull-left[
-```{r, echo = F}
+```{r, echo = F, fig.height = 5, fig.align = "center"}
 ggplot(data = diamonds, aes(x = carat, y = price, color = cut)) +
   geom_point() + 
-  labs(title = "Price vs. Carat", 
-       x = "Carat",
-       y = "Price in US Dollars")
+  labs(x = "Carat",
+       y = "Price",
+       title = "Price vs. Carat")
 ```
 
--- 
+.center[
+**Color based on value of `cut`.**
+**Aesthetic feature mapped to a variable inside `aes()`.**
+]
 
-Color based on a variable
 ]
 
 .pull-right[
-```{r echo = F}
+```{r echo = F, fig.height = 5, fig.align = "center"}
 ggplot(data = diamonds, aes(x = carat, y = price)) +
   geom_point(color = "purple") + 
-  labs(title = "Price vs. Carat", 
-       x = "Carat",
-       y = "Price in US Dollars")
+  labs(x = "Carat",
+       y = "Price",
+       title = "Price vs. Carat")
 ```
 
---
-
-Same color for all observations
+.center[
+**Same color for all observations.**
+**Aesthetic feature defined outside of `aes()`.** 
+]
 ]
 
 ---
 
-### Aesthetics 
+### Demo
 
- Show types, 
- 
- size, alpha, etc. 
+- Let's change the color and shape
+
  
 --- 
  
 ### Formative assessment
 Multiple choice question 
 
----
+- Do what is wrong with this plot, where they assigned blue in the as the aesthetic. 
 
-### Put it all together 
-
-- Live demo 
+- Change to diamond data.
 
 ---
 
-### Last assessment
+## Faceting: Display subsets of data
+
+Use **faceting** to create smaller plots that display different subsets of the data.
+
+```{r, fig.height = 5 , eval = F}
+ggplot(data = diamonds, aes(x = carat, y = price)) +
+  geom_point() + 
+  labs(x = "Carat",
+       y = "Price",
+       title = "Price vs. Carat") + 
+  facet_wrap(~ cut) #<<
+```
+
+---
+
+```{r, fig.height = 5, fig.align = "center"}
+ggplot(data = diamonds, aes(x = carat, y = price)) +
+  geom_point() + 
+  labs(x = "Carat",
+       y = "Price",
+       title = "Price vs. Carat", 
+       subtitle = "Faceted by Cut") + #<<
+  facet_wrap(~ cut) #<<
+```
+
+---
+
+## Let's put it all together
+
+
+---
+
+## Parson's Problem 
+
+
+---
+
+### Next steps
 
 
 

@@ -36,7 +36,7 @@ a, a > code {
   font-weight: bold;
   color: #993399;
   text-decoration: underline;
-  font-size: 24pt;
+  font-size: 18pt;
 }
 
 .footnote {
@@ -45,11 +45,16 @@ a, a > code {
   padding-right: 4em;
   font-size: 90%;
 }
-.remark-code, .remark-inline-code { 
+.remark-code { 
   font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace; 
   font-size: 18pt;
 }
-.remark-code-line-highlighted     { background-color: #ffff88; }
+.remark-code-line-highlighted     { background-color: #f6e1fa; }
+
+.remark-inline-code { 
+  font-family: 'Source Code Pro', 'Lucida Console', Monaco, monospace; 
+  font-weight: bold;
+}
 
 .inverse {
   background-color: #00897B;
@@ -221,4 +226,16 @@ thead, tfoot, tr:nth-child(even) { background: #eee }
   top: 50%;
   /*left: 50%;*/
   transform: translateX(-5%)
+}
+
+.left-code {
+  color: #777;
+  width: 38%;
+  height: 92%;
+  float: left;
+}
+.right-plot {
+  width: 60%;
+  float: right;
+  padding-left: 1%;
 }
