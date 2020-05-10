@@ -91,7 +91,7 @@ knitr::include_graphics("img/gg-layers.png")
 .pull-left[
 - We will use the **diamonds** data set in the `ggplot2` package
 
-- Contains prices and other attributes of about 54,000 diamonds
+- Contains price and other attributes for ~ 54,000 diamonds
 
 - Variables:
     - `cut`
@@ -184,6 +184,7 @@ ggplot(data = diamonds, aes(x = carat, y = price, color = cut)) +
 ```
 
 - Aesthetic based on value of `cut`.
+
 - Aesthetic defined inside `aes()`.
 ]
 
@@ -277,9 +278,15 @@ Let's put it all together. Create a plot of `price` by `carat`, with an aestheti
 
 ---
 
-## Next steps
+## `ggplot2` references
 
+- ["Data visualisation" in *R for Data Science*](https://r4ds.had.co.nz/data-visualisation.html)
 
+- [2ggplot2 Reference](https://ggplot2.tidyverse.org/reference/)
+
+- [Data Visualization Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
+
+- [*ggplot2 : Elegant Graphics for Data Analysis*](https://ggplot2-book.org/)
 
 
  

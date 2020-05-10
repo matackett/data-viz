@@ -4,19 +4,19 @@
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 
 html{
-  font-size: 22pt; 
+  font-size: 20pt; 
 }
 
 p {
-  font-size: 22pt;
+  font-size: 20pt;
 }
 
 body { 
- /*font-family: 'Open Sans'; sans-serif;*/
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Open Sans'; sans-serif;
+  /*font-family: "Roboto", "Helvetica", "Arial", sans-serif;*/
   font-weight: 400;
   color: #333333;
-  font-size: 22pt;
+  font-size: 20pt;
 }
 h2 {
   font-family: 'Open Sans'; sans-serif;
@@ -31,12 +31,12 @@ h1, h3 {
 }
 
 a, a > code {
-  /*font-family: 'Open Sans', sans-serif;*/
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  font-weight: bold;
+  font-family: 'Open Sans', sans-serif;
+  /*font-family: "Roboto", "Helvetica", "Arial", sans-serif;*/
+ /* font-weight: bold;*/
   color: #993399;
-  text-decoration: underline;
-  font-size: 22pt;
+  /*text-decoration: underline;*/
+  font-size: 20pt;
 }
 
 .footnote {
@@ -110,7 +110,7 @@ ul {
 
 li{
   margin: 10px 0;
-  font-size: 22pt;
+  font-size: 20pt;
 }
 
 .large { font-size: 130% }
@@ -145,7 +145,7 @@ thead, tfoot, tr:nth-child(even) { background: #eee }
 }
 
 .remark-slide-content{
-  font-size: 22pt;
+  font-size: 20pt;
 }
 
 .remark-slide-content:after {
@@ -175,19 +175,19 @@ thead, tfoot, tr:nth-child(even) { background: #eee }
 .vocab {
   color: #993399;
   font-weight: bold;
-  font-size: 22pt;
+  font-size: 20pt;
 }
 
 .vocab2 {
   color: #339898;
   font-weight: bold;
-  font-size: 22pt;
+  font-size: 20pt;
 }
 
 .vocab3 {
   color: #022CFA;
   font-weight: bold;
-  font-size: 22pt;
+  font-size: 20pt;
 }
 
 .question {
