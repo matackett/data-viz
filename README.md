@@ -26,3 +26,4 @@ Short lesson on data visualizations using ggplot2
 
 ggplot2 part of tidyverse: https://datasciencebox.org/
 gg-layers: https://towardsdatascience.com/murdering-a-legendary-data-story-what-can-we-learn-from-a-grammar-of-graphics-ad6ca42f5e30
+diamonds, 4cs: https://kleinhenzjewelers.com/diamond-education/
