@@ -13,11 +13,12 @@ Short lesson on data visualizations using ggplot2
   - [Rmd](data-viz.Rmd)
   
 :white_check_mark: Assessment: 
-  - [LearnR Tutorial](https://matackett.shinyapps.io/data-viz/)
+  - [Access online](https://matackett.shinyapps.io/data-viz/)
   - [Rmd](assessments/assessments.Rmd)
 
+<hr>
 
-## Image References
+## Slide image references
 - ggplot2 part of tidyverse: https://datasciencebox.org/ 
 - gg-layers: https://towardsdatascience.com/murdering-a-legendary-data-story-what-can-we-learn-from-a-grammar-of-graphics-ad6ca42f5e30 
 - diamonds, 4cs: https://kleinhenzjewelers.com/diamond-education/
