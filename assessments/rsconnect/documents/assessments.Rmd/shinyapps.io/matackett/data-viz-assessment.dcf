@@ -1,0 +1,12 @@
+name: data-viz-assessment
+title: data-viz-assessment
+username:
+account: matackett
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2276538
+bundleId: 3128874
+url: https://matackett.shinyapps.io/data-viz-assessment/
+when: 1589144994.33244
+asMultiple: FALSE
+asStatic: FALSE

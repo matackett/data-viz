@@ -1,68 +1,26 @@
 ---
-title: "Assessments"
+title: "Data Visualization"
 output: 
   learnr::tutorial:
     progressive: true
+    allow_skip: true
 runtime: shiny_prerendered
 ---
 
-```{r setup, include=FALSE}
+```{r echo = F}
 library(learnr)
 knitr::opts_chunk$set(echo = FALSE, 
                       warning = FALSE, 
                       message = FALSE)
 ```
 
-```{r load-packages}
-library(tidyverse)
-library(mosaicData)
+```{r setup, echo = F}
+library(ggplot2)
+library(dplyr)
+library(forcats)
 library(lubridate)
-```
+library(mosaicData)
 
-## Exercise 1: Aesthetics
-
-Consider the code below: 
-
-```{r echo = TRUE, eval = F}
-ggplot(data = diamonds, aes(x = carat, y = price)) +
-  geom_point(aes(shape = cut), color = "blue")
-```
-
-```{r aes-quest}
-question("Which of the following best describes the points on the plot?",
-    answer("The shape is the same for all points."),
-    answer("The color is the same for all points.", correct = TRUE),
-    answer("The color and shape are the same for all points.")
-  )
-```
-
-<!-- 
-- Fix headings, so it's a continuous problem 
-- Fix day of the week (is Monday correct?), put days in order
-- Add itermediate problem, where they have to fill in code inside the brackets
-- Fix questions 
-- Add codebook at top
-- Add problem intro briefly explaining the data and variables used
--->
-
-## Exercise 2: Putting it all together
-
-Let's put everything together to visualize relationships between multiple variables. For the following exercises, we will use the `Riders` dataset from the MosaicData package. This dataset contains daily data on the weather conditions and number of users on a Massachusetts rail trail. The data were collected from April 5, 2005 to November 15, 2005. You can learn more about the dataset by typing `??mosaicData::Riders` in the console. 
-
-For now, we will focus on the following variables: 
-
-- `highT`: high temperature for the day (in degrees Fahrenheit)
-- `lowT`:  low temperature for the day (in degrees Fahrenheit)
-- `clouds`: measure of cloud cover (in oktas)
-- `precip`: inches of precipitation
-- `weekday`: type of day - N: weekend or holiday, Y: non-holiday weekday
-- `day`: day of the week - Monday, Tuesday, Wednesday, etc. 
-- `riders`: estimated number of trail crossings that day
-- `month`: month extracted from `date`
-
-### Parson's Problem - 1
-
-```{r echo = F}
 Riders <- Riders %>%
   mutate(month = month(date)) %>%
   mutate(month = case_when(
@@ -76,6 +34,41 @@ Riders <- Riders %>%
   day = fct_relevel(day, "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"))
 ```
 
+## Exercise 1: Aesthetics
+
+Consider the code below: 
+
+```{r echo = TRUE, eval = FALSE}
+ggplot(data = diamonds, aes(x = carat, y = price)) +
+  geom_point(aes(shape = cut), color = "blue")
+```
+
+```{r aes-quest}
+question("Which of the following best describes the points on the plot?",
+    answer("The shape is the same for all points."),
+    answer("The color is the same for all points.", correct = TRUE),
+    answer("The color and shape are the same for all points.")
+  )
+```
+
+## Exercise 2: Putting it all together
+
+Let's put everything we've learned to visualize the relationship between multiple variables. For the following exercises, we will use the `Riders` dataset from the mosaicData R package. This dataset contains daily information on the weather conditions and number of users on a Massachusetts rail trail. The data were collected from April 5, 2005 to November 15, 2005. You can learn more about the dataset by typing `??mosaicData::Riders` in the console. 
+
+For now, we will focus on the following variables: 
+
+- `highT`: high temperature for the day (in degrees Fahrenheit)
+- `lowT`:  low temperature for the day (in degrees Fahrenheit)
+- `clouds`: measure of cloud cover (in oktas)
+- `precip`: inches of precipitation
+- `weekday`: type of day (N: weekend or holiday, Y: non-holiday weekday)
+- `day`: day of the week (Monday, Tuesday, Wednesday, etc.)
+- `riders`: estimated number of trail users that day
+- `month`: month extracted from `date`
+
+### Part 1
+
+Recreate the plot shown below by filling in the missing values in the code chunk.
 
 ```{r echo = FALSE, eval = TRUE}
 ggplot(data = Riders, aes(x = highT, y = riders, color = clouds)) + 
@@ -88,10 +81,10 @@ ggplot(data = Riders, aes(x = highT, y = riders, color = clouds)) +
   facet_wrap(~ weekday)
 ```
 
-Fill in the blanks in the partial code to recreate the plot shown above. 
 
-```{r parsons-1, exercise = TRUE, exercise.eval = FALSE}
-# replace blanks with the correct values to recreate the plot above.
+```{r parsons-1, exercise = TRUE}
+# Replace the blanks with the correct values. 
+
 ggplot(data = Riders, aes(x = highT, y = _____, color = _____)) + 
   geom_point() + 
   labs(x = "_____", 
@@ -100,11 +93,13 @@ ggplot(data = Riders, aes(x = highT, y = _____, color = _____)) +
        title = "Riders vs. High Temp. & Cloud Cover", 
        subtitle = "_____") +
   facet_wrap(~ _____)
+
 ```
 
-### Parson's Problem - 2
+### Part 2
 
-Fill in the code to recreate the plot. 
+Recreate the plot shown below by filling in the missing values in the code chunk.
+
 ```{r echo = FALSE, eval = TRUE}
 ggplot(data = Riders, aes(x = clouds, y = precip, color = weekday)) + 
   geom_point() + 
@@ -116,17 +111,18 @@ ggplot(data = Riders, aes(x = clouds, y = precip, color = weekday)) +
   facet_wrap(~ month)
 ```
 
-```{r parsons-2, exercise = TRUE, exercise.eval = FALSE}
-# Fill in the code to recreate the plot shown above 
+```{r parsons-2, exercise = TRUE}
+# Replace the blanks with the correct values. 
+
 ggplot(data = Riders, aes(_____)) + 
   geom_point() + 
   labs(_____)+
   facet_wrap(_____)
 ```
 
-### Parson's Problem - 3
+### Part 3
 
-Recreate the plot. 
+Recreate the plot shown below. 
 
 ```{r echo = FALSE, eval = TRUE}
 ggplot(data = Riders, aes(x = lowT, y = riders, color = day)) + 
@@ -139,8 +135,8 @@ ggplot(data = Riders, aes(x = lowT, y = riders, color = day)) +
   facet_wrap(~ month)
 ```
 
-```{r parsons-3, exercise = TRUE, exercise.eval = FALSE}
-# Write code to recreate the plot shown above 
+```{r parsons-3, exercise = TRUE}
+# Write code to recreate the plot.
 
 ```
 
