@@ -12,20 +12,20 @@ p {
 }
 
 body { 
-  font-family: 'Open Sans'; sans-serif;
+  font-family: 'Open Sans', sans-serif;
   /*font-family: "Roboto", "Helvetica", "Arial", sans-serif;*/
   font-weight: 400;
   color: #333333;
   font-size: 20pt;
 }
 h2 {
-  font-family: 'Open Sans'; sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: bold;
   color: #339898;
   margin: 0.25em 0 0.5em 0;
 }
 h1, h3 {
-  font-family: 'Open Sans'; sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: bold;
   color: #339898;
 }
