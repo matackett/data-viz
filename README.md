@@ -8,11 +8,8 @@ Short lesson on data visualizations using ggplot2
 :world_map: [Concept map](data-viz-concept-map.pdf)
 
 :computer: [Lesson Slides](data-viz.pdf)
-  - [Rmd](data-viz.Rmd)
   
 :white_check_mark: [Assessment](https://matackett.shinyapps.io/data-viz/)
-  - [Rmd](assessments/assessments.Rmd)
-
 <hr>
 
 ## Slide image references
