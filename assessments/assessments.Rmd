@@ -80,13 +80,93 @@ ggplot(data = Riders, aes(x = highT, y = riders, color = clouds)) +
   labs(x = "High Temperature", 
        y = "Riders", 
        color = "Cloud Cover",
+       title = "Riders vs. High Temp. by Cloud Cover")
+```
+
+
+```{r parsons-1, exercise = TRUE}
+# Replace the blanks with the correct values. 
+
+ggplot(data = Riders, aes(x = highT, y = _____, color = _____)) + 
+  geom_point() + 
+  labs(x = "_____", 
+       y = "Riders", 
+       color = "Cloud Cover",
+       title = "Riders vs. High Temp. by Cloud Cover")
+
+```
+
+### Part 2
+
+Recreate the plot shown below by filling in the missing values in the code chunk.
+
+```{r echo = FALSE, eval = TRUE}
+ggplot(data = Riders, aes(x = clouds, y = precip, color = weekday)) + 
+  geom_point() + 
+  labs(x = "Cloud Cover", 
+       y = "Precipitation", 
+       color = "Weekday",
+       title = "Precipitation vs. Cloud Cover by Weekday")
+```
+
+```{r parsons-2, exercise = TRUE}
+# Replace the blanks with the correct values. 
+
+ggplot(data = Riders, aes(_____)) + 
+  geom_point() + 
+  labs(_____)
+```
+
+### Part 3
+
+Recreate the plot shown below. 
+
+```{r echo = FALSE, eval = TRUE}
+ggplot(data = Riders, aes(x = lowT, y = riders, color = day)) + 
+  geom_point() + 
+  labs(x = "Low Temperature", 
+       y = "Riders", 
+       color = "Day",
+       title = "Riders. vs. Low Temp by Day")
+```
+
+```{r parsons-3, exercise = TRUE}
+# Write code to recreate the plot.
+
+```
+
+## Exercise 3: Plotting with Faceting
+
+Let's put everything we've learned to visualize the relationship between multiple variables. For the following exercises, we will use the `Riders` dataset from the mosaicData R package. This dataset contains daily information on the weather conditions and number of users on a Massachusetts rail trail. The data were collected from April 5, 2005 to November 15, 2005. You can learn more about the dataset by typing `??mosaicData::Riders` in the console. 
+
+For now, we will focus on the following variables: 
+
+- `highT`: high temperature for the day (in degrees Fahrenheit)
+- `lowT`:  low temperature for the day (in degrees Fahrenheit)
+- `clouds`: measure of cloud cover (in oktas)
+- `precip`: inches of precipitation
+- `weekday`: type of day (N: weekend or holiday, Y: non-holiday weekday)
+- `day`: day of the week (Monday, Tuesday, Wednesday, etc.)
+- `riders`: estimated number of trail users that day
+- `month`: month extracted from `date`
+
+### Part 1
+
+Recreate the plot shown below by filling in the missing values in the code chunk.
+
+```{r echo = FALSE, eval = TRUE}
+ggplot(data = Riders, aes(x = highT, y = riders, color = clouds)) + 
+  geom_point() + 
+  labs(x = "High Temperature", 
+       y = "Riders", 
+       color = "Cloud Cover",
        title = "Riders vs. High Temp. & Cloud Cover", 
        subtitle = "Faceted by Weekday") +
   facet_wrap(~ weekday)
 ```
 
 
-```{r parsons-1, exercise = TRUE}
+```{r parsons-facet-1, exercise = TRUE}
 # Replace the blanks with the correct values. 
 
 ggplot(data = Riders, aes(x = highT, y = _____, color = _____)) + 
@@ -115,7 +195,7 @@ ggplot(data = Riders, aes(x = clouds, y = precip, color = weekday)) +
   facet_wrap(~ month)
 ```
 
-```{r parsons-2, exercise = TRUE}
+```{r parsons-facet-2, exercise = TRUE}
 # Replace the blanks with the correct values. 
 
 ggplot(data = Riders, aes(_____)) + 
@@ -139,7 +219,7 @@ ggplot(data = Riders, aes(x = lowT, y = riders, color = day)) +
   facet_wrap(~ month)
 ```
 
-```{r parsons-3, exercise = TRUE}
+```{r parsons-facet-3, exercise = TRUE}
 # Write code to recreate the plot.
 
 ```

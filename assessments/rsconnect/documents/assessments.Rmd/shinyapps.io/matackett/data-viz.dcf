@@ -5,8 +5,8 @@ account: matackett
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 2276511
-bundleId: 3128882
+bundleId: 3134456
 url: https://matackett.shinyapps.io/data-viz/
-when: 1589145133.0051
+when: 1589246841.77997
 asMultiple: FALSE
 asStatic: FALSE
