@@ -24,11 +24,10 @@ class: center, middle, inverse, title-slide
 ## Learning objectives
 
 .pull-left[
-- Create a scatterplot using `ggplot`
+- Create a scatterplot using `ggplot` function
 
-- Add aesthetics to a plot 
+- Add aesthetics (features) to a plot 
 
-- Create smaller plots for subsets of data
 ]
 
 .pull-right[
@@ -192,36 +191,11 @@ Which of the following best describes the points on the plot?
 
 ---
 
-## Faceting
-
-Use .vocab[faceting] to create smaller plots that display different subsets of the data.
-
-.code-chunk[
-
-```r
-ggplot(data = diamonds, aes(x = carat, y = price)) +
-  geom_point() + 
-  labs(x = "Carat",
-       y = "Price",
-       title = "Price vs. Carat") + 
-* facet_wrap(~ clarity)
-```
-]
-
----
-
-## Faceting by `clarity`
-
-&lt;img src="data-viz_files/figure-html/unnamed-chunk-12-1.png" style="display: block; margin: auto;" /&gt;
-
----
-
 class: middle, center
 
 .question[
-Let's put it all together. Create a plot of `price` by `carat`, with an aesthetic by `cut`, faceted by `clarity`.
+Let's put it all together. Create a plot of `price` vs. `carat`, with an aesthetic by `clarity`.
 ]
-
 
 ---
 

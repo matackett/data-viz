@@ -29,11 +29,10 @@ library(tidyverse)
 ## Learning objectives
 
 .pull-left[
-- Create a scatterplot using `ggplot`
+- Create a scatterplot using `ggplot` function
 
-- Add aesthetics to a plot 
+- Add aesthetics (features) to a plot 
 
-- Create smaller plots for subsets of data
 ]
 
 .pull-right[
@@ -44,9 +43,7 @@ ggplot(data = diamonds, aes(x = carat, y = price, color = cut)) +
   labs(x = "Carat",
        y = "Price",
        color = "Cut",
-       title = "Price vs. Carat by Cut",
-       subtitle = "Faceted by Clarity") + 
-  facet_wrap(~ clarity)
+       title = "Price vs. Carat by Cut") 
 ```
 ]
 
@@ -176,7 +173,7 @@ ggplot(data = diamonds, aes(x = carat, y = price, color = cut)) +
   geom_point() + 
   labs(x = "Carat",
        y = "Price",
-       title = "Price vs. Carat")
+       title = "Price vs. Carat by Cut")
 ```
 
 - Aesthetic based on value of `cut`.
@@ -228,43 +225,11 @@ Which of the following best describes the points on the plot?
 
 ---
 
-## Faceting
-
-Use .vocab[faceting] to create smaller plots that display different subsets of the data.
-
-.code-chunk[
-```{r, fig.height = 5 , eval = F}
-ggplot(data = diamonds, aes(x = carat, y = price)) +
-  geom_point() + 
-  labs(x = "Carat",
-       y = "Price",
-       title = "Price vs. Carat") + 
-  facet_wrap(~ clarity) #<<
-```
-]
-
----
-
-## Faceting by `clarity`
-
-```{r, echo = F, fig.height = 5, fig.align = "center"}
-ggplot(data = diamonds, aes(x = carat, y = price)) +
-  geom_point() + 
-  labs(x = "Carat",
-       y = "Price",
-       title = "Price vs. Carat", 
-       subtitle = "Faceted by Clarity") + #<<
-  facet_wrap(~ clarity) #<<
-```
-
----
-
 class: middle, center
 
 .question[
-Let's put it all together. Create a plot of `price` by `carat`, with an aesthetic by `cut`, faceted by `clarity`.
+Let's put it all together. Create a plot of `price` vs. `carat`, with an aesthetic by `clarity`.
 ]
-
 
 ---
 
@@ -289,6 +254,4 @@ It's your turn to create data visualizations using `ggplot2`!
 
 - [*ggplot2 : Elegant Graphics for Data Analysis*](https://ggplot2-book.org/)
 
-
- 
 
